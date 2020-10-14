@@ -1,7 +1,7 @@
 {
-  "name": "service-registry",
+  "name": "speakers-service",
   "version": "1.0.0",
-  "description": "A generic service registry for Node.js",
+  "description": "A service to manage speakers",
   "scripts": {
     "start": "node bin/run | bunyan"
   },
@@ -10,8 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "bunyan": "^1.8.12",
-    "express": "^4.16.4",
-    "semver": "^7.3.2"
+    "express": "^4.16.4"
   },
   "devDependencies": {
     "chai": "^4.2.0",
