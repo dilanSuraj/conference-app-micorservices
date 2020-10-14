@@ -21,6 +21,10 @@ module.exports = (config) => {
     return next('Not implemented');
   })
 
+  service.get('/find/:servicename/:serviceversion', (req, res, next) => {
+    return next('Not implemented');
+  })
+
   // eslint-disable-next-line no-unused-vars
   service.use((error, req, res, next) => {
     res.status(error.status || 500);
