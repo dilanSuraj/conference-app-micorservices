@@ -27,7 +27,16 @@ module.exports = (config) => {
     return res.json({ result: serviceKey });
   });
 
-  service.delete('/register/:servicename/:serviceversion/:serviceport', (req, res, next) => next('Not implemented'));
+  service.delete('/register/:servicename/:serviceversion/:serviceport', (req, res) => {
+    const { servicename, serviceversion, serviceport } = req.params;
+    // Check for ipv6 and changed the service ip format
+    const serviceip = req.connection.remoteAddress.includes('::') ? `[${req.connection.remoteAddress}]` : req.connection.remoteAddress;
+
+    const serviceKey = serviceRegistry
+      .unRegister(servicename, serviceversion, serviceip, serviceport);
+
+    return res.json({ result: serviceKey });
+  });
 
   service.get('/find/:servicename/:serviceversion', (req, res, next) => next('Not implemented'));
 
